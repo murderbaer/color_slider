@@ -4,14 +4,19 @@ import "rc-slider/assets/index.css";
 import "./ColorSlider.css";
 
 export default class ColorSlider extends React.Component<
-  { text: string; value: number },
-  { text: string; value: number | number[] }
+  { text: string; value: number; onValueChange: (value: number) => void },
+  { text: string; value: number | number[]; onValueChange: (value: number) => void }
 > {
-  constructor(props: { text: string; value: number }) {
+  constructor(props: {
+    text: string;
+    value: number;
+    onValueChange: (value: number) => void;
+  }) {
     super(props);
     this.state = {
       text: props.text,
       value: props.value,
+      onValueChange: props.onValueChange,
     };
     this.handleSliderChange = this.handleSliderChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
@@ -19,12 +24,13 @@ export default class ColorSlider extends React.Component<
 
   handleSliderChange(value: number | number[]) {
     this.setState({ value });
-    console.log(value);
+    this.state.onValueChange(value as number);
   }
 
   handleTextChange(value: ChangeEvent<HTMLInputElement>) {
     if (this.validateTextInput(value.target.value)) {
       this.setState({ value: Number(value.target.value) });
+      this.state.onValueChange(Number(value.target.value));
     }
   }
 
