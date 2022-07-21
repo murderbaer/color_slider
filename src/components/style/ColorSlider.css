@@ -1,9 +1,20 @@
+.Container {
+  white-space: nowrap;
+}
+
 .Slider {
+  display: inline-block;
   width: 80%;
+  margin-right: 1%;
 }
 
 .Text {
-  width: 20%;
-  text-align: center;
   color: #000;
+  display: inline-block;
+  width: 3%;
+}
+.TextInput {
+  color: #000;
+  display: inline-block;
+  width: 5%;
 }

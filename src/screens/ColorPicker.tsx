@@ -34,6 +34,7 @@ export default class ColorPicker extends React.Component<
   render() {
     return (
       <div>
+        <div className="Sliders">
         <ColorSlider
           text="R"
           value={this.state.red}
@@ -49,12 +50,12 @@ export default class ColorPicker extends React.Component<
           value={this.state.blue}
           onValueChange={this.handleBlueChange}
         />
-        <p>{this.state.red}</p>
         <ColorBox
           red={this.state.red}
           green={this.state.green}
           blue={this.state.blue}
         />
+        </div>
       </div>
     );
   }

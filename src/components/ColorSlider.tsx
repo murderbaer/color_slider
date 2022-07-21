@@ -1,25 +1,28 @@
-import React, { ChangeEvent } from "react";
+import React, { Component, ChangeEvent } from "react";
 import Slider from "rc-slider";
 
 import "rc-slider/assets/index.css";
 
 import "./style/ColorSlider.css";
 
-export default class ColorSlider extends React.Component<
-  { text: string; value: number; onValueChange: (value: number) => void },
-  { text: string; value: number | number[]; onValueChange: (value: number) => void }
+interface ColorSliderInterface {
+  text: string;
+  value: number | number[];
+  onValueChange: (value: number) => void;
+}
+
+export default class ColorSlider extends Component<
+  ColorSliderInterface,
+  ColorSliderInterface
 > {
-  constructor(props: {
-    text: string;
-    value: number;
-    onValueChange: (value: number) => void;
-  }) {
+  constructor(props: ColorSliderInterface) {
     super(props);
     this.state = {
       text: props.text,
       value: props.value,
       onValueChange: props.onValueChange,
     };
+
     this.handleSliderChange = this.handleSliderChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
   }
@@ -46,7 +49,7 @@ export default class ColorSlider extends React.Component<
 
   render() {
     return (
-      <div>
+      <div className="Container">
         <p className="Text">{this.state.text}</p>
         <Slider
           className="Slider"
@@ -56,6 +59,7 @@ export default class ColorSlider extends React.Component<
           value={this.state.value}
         />
         <input
+          className="TextInput"
           type="text"
           value={this.state.value as number}
           onChange={this.handleTextChange}
