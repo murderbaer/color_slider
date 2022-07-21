@@ -1,0 +1,19 @@
+.SlidersContainer {
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+}
+
+.ColorBoxContainer {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.MainContainer {
+  display: flex;
+  margin-top: 5%;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+}

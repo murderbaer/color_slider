@@ -2,6 +2,8 @@ import React from "react";
 import ColorBox from "../components/ColorBox";
 import ColorSlider from "../components/ColorSlider";
 
+import './ColorPicker.css'
+
 export default class ColorPicker extends React.Component<
   {},
   { red: number; green: number; blue: number }
@@ -33,28 +35,30 @@ export default class ColorPicker extends React.Component<
 
   render() {
     return (
-      <div>
-        <div className="Sliders">
-        <ColorSlider
-          text="R"
-          value={this.state.red}
-          onValueChange={this.handleRedChange}
-        />
-        <ColorSlider
-          text="G"
-          value={this.state.green}
-          onValueChange={this.handleGreenChange}
-        />
-        <ColorSlider
-          text="B"
-          value={this.state.blue}
-          onValueChange={this.handleBlueChange}
-        />
-        <ColorBox
-          red={this.state.red}
-          green={this.state.green}
-          blue={this.state.blue}
-        />
+      <div className="MainContainer">
+        <div className="SlidersContainer">
+          <ColorSlider
+            text="R"
+            value={this.state.red}
+            onValueChange={this.handleRedChange}
+          />
+          <ColorSlider
+            text="G"
+            value={this.state.green}
+            onValueChange={this.handleGreenChange}
+          />
+          <ColorSlider
+            text="B"
+            value={this.state.blue}
+            onValueChange={this.handleBlueChange}
+          />
+        </div>
+        <div className="ColorBoxContainer">
+          <ColorBox
+            red={this.state.red}
+            green={this.state.green}
+            blue={this.state.blue}
+          />
         </div>
       </div>
     );

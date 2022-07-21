@@ -1,20 +1,24 @@
 .Container {
-  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
 }
 
 .Slider {
-  display: inline-block;
+  margin: 2%;
   width: 80%;
-  margin-right: 1%;
 }
 
 .Text {
   color: #000;
-  display: inline-block;
-  width: 3%;
+  margin: auto;
 }
+
 .TextInput {
   color: #000;
-  display: inline-block;
+  margin: auto;
   width: 5%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
