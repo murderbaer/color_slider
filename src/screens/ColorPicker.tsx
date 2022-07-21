@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import ColorBox from "../components/ColorBox";
 import ColorSlider from "../components/ColorSlider";
 
 export default class ColorPicker extends React.Component<
@@ -49,6 +50,11 @@ export default class ColorPicker extends React.Component<
           onValueChange={this.handleBlueChange}
         />
         <p>{this.state.red}</p>
+        <ColorBox
+          red={this.state.red}
+          green={this.state.green}
+          blue={this.state.blue}
+        />
       </div>
     );
   }

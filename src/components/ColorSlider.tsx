@@ -1,7 +1,9 @@
 import React, { ChangeEvent } from "react";
 import Slider from "rc-slider";
+
 import "rc-slider/assets/index.css";
-import "./ColorSlider.css";
+
+import "./style/ColorSlider.css";
 
 export default class ColorSlider extends React.Component<
   { text: string; value: number; onValueChange: (value: number) => void },
