@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import ColorSlider from '../components/ColorSlider'
 
 export default class ColorPicker extends Component {
   render() {
     return (
-      <div>ColorPicker</div>
+        <ColorSlider text='R' value={0} />
     )
   }
 }
