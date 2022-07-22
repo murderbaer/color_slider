@@ -24,18 +24,16 @@ class DatabaseHandler
         return $colors;
     }
 
-    public function saveColor($properties)
+    public function saveColor($properties): bool
     {
         echo 'trying to save color';
         $sql = "INSERT INTO $this->table (red, green, blue, name) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$properties['red'], $properties['green'], $properties['blue'], $properties['name']]);
         if ($stmt->rowCount() > 0) {
-            echo 'DB saved';
-            http_response_code(200);
+            return true;
         } else {
-            http_response_code(400);
-            echo 'DB not saved';
+            return false;
         }
     }
 }

@@ -50,8 +50,7 @@ class HttpRequestHandler
     private function saveColor($properties)
     {
         $propsEnc = json_decode($properties, true);
-        if ($this->validateProps($propsEnc)) {
-            $this->dbHandler->saveColor($propsEnc);
+        if ($this->validateProps($propsEnc) && $this->dbHandler->saveColor($propsEnc)) {
             http_response_code(200);
         } else {
             http_response_code(400);
