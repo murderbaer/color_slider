@@ -36,12 +36,38 @@ class HandleHttpRequest
 
     private function getColors()
     {
-
     }
 
     private function saveColor($properties)
     {
         $propsInJson = json_decode($properties, true);
-        echo $propsInJson['red'] . ' ' . $propsInJson['green'] . ' ' . $propsInJson['blue'] . ' ' . $propsInJson['name']; 
+        if ($this->validateProps($propsInJson)) {
+            http_response_code(200);
+        } else {
+            http_response_code(400);
+        }
+    }
+
+    private function validateProps($props)
+    {
+        return $this->validateColor($props['red']) &&
+            $this->validateColor($props['green']) &&
+            $this->validateColor($props['blue']) &&
+            $this->validateName($props['name']);
+    }
+
+    private function validateColor($colorValue): bool
+    {
+        if (gettype($colorValue) !== 'integer' || $colorValue < 0 || $colorValue > 255) {
+            return false;
+        }
+        return true;
+    }
+    private function validateName($colorValue): bool
+    {
+        if (gettype($colorValue) !== 'string') {
+            return false;
+        }
+        return true;
     }
 }
