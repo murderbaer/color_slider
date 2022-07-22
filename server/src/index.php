@@ -1,3 +1,6 @@
 <?php
-phpinfo();  // allg. Informationen zur PHP-Installation
-?>
+include('HandleHttpRequest.php');
+
+$httpHandler = new HandleHttpRequest();
+$httpHandler->handleRequest();
+
