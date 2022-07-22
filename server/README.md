@@ -12,5 +12,5 @@ The database connection is implemented through `PDO` which may need to be enable
 
 ## MySQL
 
-The `colors.sql` contains commands which can be copied and pasted to easylie create a functioning database. If other configuraiton olptions are needed changes have to be made in `DatabaseHandler`
+The `colors.sql` contains commands which can be copied and pasted to easylie create a functioning database. If other configuraiton options are needed changes have to be made in `DatabaseHandler`
 
