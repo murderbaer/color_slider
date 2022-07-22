@@ -1,6 +1,13 @@
 <?php
-class HandleHttpRequest
+include('DatabaseHandler.php');
+class HttpRequestHandler
 {
+    private $dbHandler;
+    public function __construct()
+    {
+        $this->dbHandler = new DatabaseHandler();
+    }
+
     public function handleRequest()
     {
         $uri = $_SERVER['REQUEST_URI'];
@@ -22,7 +29,7 @@ class HandleHttpRequest
 
         switch ($method) {
             case 'GET':
-
+                $this->getColors();
                 break;
             case 'POST':
                 $post = file_get_contents('php://input');
@@ -36,12 +43,15 @@ class HandleHttpRequest
 
     private function getColors()
     {
+        $colors = $this->dbHandler->getColors();
+        echo json_encode($colors);
     }
 
     private function saveColor($properties)
     {
-        $propsInJson = json_decode($properties, true);
-        if ($this->validateProps($propsInJson)) {
+        $propsEnc = json_decode($properties, true);
+        if ($this->validateProps($propsEnc)) {
+            $this->dbHandler->saveColor($propsEnc);
             http_response_code(200);
         } else {
             http_response_code(400);

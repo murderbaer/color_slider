@@ -1,6 +1,6 @@
 <?php
-include('HandleHttpRequest.php');
+include('HttpRequestHandler.php');
 
-$httpHandler = new HandleHttpRequest();
+$httpHandler = new HttpRequestHandler();
 $httpHandler->handleRequest();
 
