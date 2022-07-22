@@ -26,7 +26,6 @@ class DatabaseHandler
 
     public function saveColor($properties): bool
     {
-        echo 'trying to save color';
         $sql = "INSERT INTO $this->table (red, green, blue, name) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$properties['red'], $properties['green'], $properties['blue'], $properties['name']]);

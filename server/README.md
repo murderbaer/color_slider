@@ -2,7 +2,19 @@
 
 A small summary on how to set up the server
 
-## nginx and php
+## Usage
+
+The server is basically an interface for the SQL database. By sending a http GET request, the server respons with a JSON array containing all the colors saved in the database. A color element is structured as follows:
+```json
+{
+    "id": number,
+    "name": string,
+    "red": number,
+    "green": number,
+    "blue": number
+}
+```
+## Nginx and PHP
 
 The server was developed on Arch Linux using nginx, php-fpm and php-cgi. Because of differnces between distrobutions I provided my nginx.conf in the quickstart folder. You need to change the `root` folder marked as `CHANGE_TO_SRC_FOLDER` to the path of the src folder.
 

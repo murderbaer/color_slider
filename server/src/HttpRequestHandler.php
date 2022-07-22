@@ -10,21 +10,6 @@ class HttpRequestHandler
 
     public function handleRequest()
     {
-        $uri = $_SERVER['REQUEST_URI'];
-
-        switch ($uri) {
-            case '/colors':
-                $this->handleColorsRequest();
-                break;
-            default:
-                echo '404 Not Found';
-                http_response_code(404);
-                break;
-        }
-    }
-
-    private function handleColorsRequest()
-    {
         $method = $_SERVER['REQUEST_METHOD'];
 
         switch ($method) {
