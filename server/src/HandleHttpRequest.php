@@ -14,20 +14,6 @@ class HandleHttpRequest
                 http_response_code(404);
                 break;
         }
-        // switch ($method) {
-        //     case 'GET':
-        //         if ($uri == '/colors') {
-        //             echo 'Hello World!';
-        //         }
-        //         break;
-        //     case 'POST':
-        //         $post = file_get_contents('php://input');
-        //         echo $post;
-        //         break;
-        //     default:
-        //         echo '405 Method Not Allowed';
-        //         break;
-        // }
     }
 
     private function handleColorsRequest()
