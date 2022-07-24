@@ -22,6 +22,7 @@ class HttpRequestHandler
                 break;
             default:
                 echo '405 Method Not Allowed';
+                http_response_code(405);
                 break;
         }
     }
@@ -29,7 +30,12 @@ class HttpRequestHandler
     private function getColors()
     {
         $colors = $this->dbHandler->getColors();
-        echo json_encode($colors);
+        if (!empty($colors)) {
+            echo json_encode($colors);
+            http_response_code(200);
+        } else {
+            http_response_code(404);
+        }
     }
 
     private function saveColor($properties)
