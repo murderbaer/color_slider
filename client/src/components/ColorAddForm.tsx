@@ -1,4 +1,5 @@
 import React from "react";
+import ColorListItem from "./ColorListItem";
 import "./style/ColorAddForm.css";
 
 interface ColorAddFormProps {
@@ -23,7 +24,9 @@ export default class ColorAddForm extends React.Component<
 
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
+
 
   handleButtonClick() {
     let url = "http://127.0.0.1";
@@ -32,8 +35,6 @@ export default class ColorAddForm extends React.Component<
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
-        console.log(xhr.status);
-        console.log(xhr.responseText);
       }
     };
 

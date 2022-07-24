@@ -4,6 +4,7 @@ import ColorSlider from "../components/ColorSlider";
 import ColorAddForm from "../components/ColorAddForm";
 
 import "./ColorPicker.css";
+import ColorList from "../components/ColorList";
 import ColorListItem from "../components/ColorListItem";
 
 export default class ColorPicker extends React.Component<
@@ -72,8 +73,9 @@ export default class ColorPicker extends React.Component<
             green={this.state.green}
           />
         </div>
-        <ColorListItem r={200} g={30} b={40} name="test" />
-        <ColorListItem r={20} g={100} b={40} name="test" />
+        <div className="ColorListContainer">
+          <ColorList />
+        </div>
       </div>
     );
   }
