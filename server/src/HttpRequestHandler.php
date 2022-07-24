@@ -5,6 +5,7 @@ class HttpRequestHandler
     private $dbHandler;
     public function __construct()
     {
+        header('Access-Control-Allow-Origin: *'); 
         $this->dbHandler = new DatabaseHandler();
     }
 

@@ -1,8 +1,10 @@
 import React from "react";
 import ColorBox from "../components/ColorBox";
 import ColorSlider from "../components/ColorSlider";
+import ColorAddForm from "../components/ColorAddForm";
 
-import './ColorPicker.css'
+import "./ColorPicker.css";
+import ColorListItem from "../components/ColorListItem";
 
 export default class ColorPicker extends React.Component<
   {},
@@ -36,30 +38,42 @@ export default class ColorPicker extends React.Component<
   render() {
     return (
       <div className="MainContainer">
-        <div className="SlidersContainer">
-          <ColorSlider
-            text="R"
-            value={this.state.red}
-            onValueChange={this.handleRedChange}
-          />
-          <ColorSlider
-            text="G"
-            value={this.state.green}
-            onValueChange={this.handleGreenChange}
-          />
-          <ColorSlider
-            text="B"
-            value={this.state.blue}
-            onValueChange={this.handleBlueChange}
-          />
+        <div className="ColorPickerContainer">
+          <div className="SlidersContainer">
+            <ColorSlider
+              text="R"
+              value={this.state.red}
+              onValueChange={this.handleRedChange}
+            />
+            <ColorSlider
+              text="G"
+              value={this.state.green}
+              onValueChange={this.handleGreenChange}
+            />
+            <ColorSlider
+              text="B"
+              value={this.state.blue}
+              onValueChange={this.handleBlueChange}
+            />
+          </div>
+          <div className="ColorBoxContainer">
+            <ColorBox
+              red={this.state.red}
+              green={this.state.green}
+              blue={this.state.blue}
+              size={"200px"}
+            />
+          </div>
         </div>
-        <div className="ColorBoxContainer">
-          <ColorBox
+        <div className="ColorAddContainer">
+          <ColorAddForm
             red={this.state.red}
-            green={this.state.green}
             blue={this.state.blue}
+            green={this.state.green}
           />
         </div>
+        <ColorListItem r={200} g={30} b={40} name="test" />
+        <ColorListItem r={20} g={100} b={40} name="test" />
       </div>
     );
   }

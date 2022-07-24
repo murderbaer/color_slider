@@ -6,19 +6,18 @@
 }
 
 .Slider {
-  margin: 2%;
+  margin: 10px;
   width: 80%;
 }
 
 .Text {
-  color: #000;
   margin: auto;
 }
 
 .TextInput {
-  color: #000;
   margin: auto;
-  width: 5%;
+  width: 15%;
   border-radius: 5px;
   border: 1px solid #ccc;
+  align-items: center;
 }

@@ -1,0 +1,23 @@
+.ColorAddForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+}
+
+.TextInputName {
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  align-items: center;
+  margin: auto;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 7px;
+}
+
+.ButtonAdd {
+  border-radius: 2px;
+  align-items: center;
+  margin: auto;
+  padding: 7px;
+} 

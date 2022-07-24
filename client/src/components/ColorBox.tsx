@@ -1,9 +1,10 @@
-import './style/ColorBox.css';
+import "./style/ColorBox.css";
 
 interface ColorBoxInterface {
   red: number;
   green: number;
   blue: number;
+  size: string;
 }
 
 function componentToHex(c: number) {
@@ -15,10 +16,17 @@ function rgbToHex(r: number, g: number, b: number) {
   return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
-function ColorBox (props: ColorBoxInterface)  {
+function ColorBox(props: ColorBoxInterface) {
   return (
-    <div className="ColorBox" style={{ backgroundColor: rgbToHex(props.red, props.green, props.blue) }} />
+    <div
+      className="ColorBox"
+      style={{
+        backgroundColor: rgbToHex(props.red, props.green, props.blue),
+        width: props.size,
+        height: props.size,
+      }}
+    />
   );
-};
+}
 
 export default ColorBox;

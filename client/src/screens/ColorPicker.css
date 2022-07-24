@@ -1,19 +1,21 @@
-.SlidersContainer {
-  flex-direction: row;
-  flex: 1;
-  justify-content: center;
-}
-
-.ColorBoxContainer {
-  flex-direction: row;
-  justify-content: center;
-}
-
 .MainContainer {
   display: flex;
-  margin-top: 5%;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  
 }
+
+.ColorPickerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.SlidersContainer {
+  flex-direction: row;
+  justify-content: center;
+  margin-right: 5%;
+}
+
