@@ -1,6 +1,6 @@
-# Project Title
+# Color Slider
 
-A WebApp which lets you save color in the RGB format on a Database
+A WebApp which lets you save color in the RGB format on a Database.
 
 ## Description
 
