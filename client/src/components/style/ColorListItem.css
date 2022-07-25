@@ -4,3 +4,12 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.ColorListItemText {
+    width: 150px;
+}
+
+.ColorName {
+    width: 100px;
+    margin-left: 7px;
+}

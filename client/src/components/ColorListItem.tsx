@@ -12,7 +12,7 @@ interface ColorListItemProps {
 export default function ColorListItem(props: ColorListItemProps) {
   return (
     <div className="ColorListItem">
-        <p>R {props.r} G {props.g} B {props.b}</p>
+        <p className='ColorListItemText'>R {props.r} G {props.g} B {props.b}</p>
         <ColorBox red={props.r} green={props.g} blue={props.b} size='20px'/>
         <div className="ColorName">{props.name}</div>
     </div>

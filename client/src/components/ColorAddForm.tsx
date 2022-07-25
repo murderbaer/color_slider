@@ -1,5 +1,4 @@
 import React from "react";
-import ColorListItem from "./ColorListItem";
 import "./style/ColorAddForm.css";
 
 interface ColorAddFormProps {
@@ -29,7 +28,7 @@ export default class ColorAddForm extends React.Component<
 
 
   handleButtonClick() {
-    let url = "http://127.0.0.1";
+    let url = "http://localhost/";
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
