@@ -5,7 +5,7 @@ class HttpRequestHandler
     private $dbHandler;
     public function __construct()
     {
-        header('Access-Control-Allow-Origin: *'); 
+        header('Access-Control-Allow-Origin: *');
         $this->dbHandler = new DatabaseHandler();
     }
 
@@ -31,12 +31,8 @@ class HttpRequestHandler
     private function getColors()
     {
         $colors = $this->dbHandler->getColors();
-        if (!empty($colors)) {
-            echo json_encode($colors);
-            http_response_code(200);
-        } else {
-            http_response_code(404);
-        }
+        echo json_encode($colors);
+        http_response_code(200);
     }
 
     private function saveColor($properties)

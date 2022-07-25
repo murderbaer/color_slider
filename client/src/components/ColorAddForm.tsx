@@ -5,6 +5,7 @@ interface ColorAddFormProps {
   red: number;
   green: number;
   blue: number;
+  refreshList: () => any;
 }
 
 interface ColorAddFormState {
@@ -23,14 +24,12 @@ export default class ColorAddForm extends React.Component<
 
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
-    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
 
-  handleButtonClick() {
+  async handleButtonClick() {
     const url = "http://localhost/";
-
-    fetch(url, {
+    await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,6 +42,7 @@ export default class ColorAddForm extends React.Component<
         name: this.state.name,
       }),
     }).then(data  => console.log(data));
+    this.props.refreshList();
   }
 
   handleTextChange(event: React.ChangeEvent<HTMLInputElement>) {

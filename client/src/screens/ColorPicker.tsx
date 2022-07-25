@@ -9,7 +9,7 @@ import ColorListItem from "../components/ColorListItem";
 
 export default class ColorPicker extends React.Component<
   {},
-  { red: number; green: number; blue: number }
+  { red: number; green: number; blue: number; list: any[] }
 > {
   constructor(props: any) {
     super(props);
@@ -17,11 +17,13 @@ export default class ColorPicker extends React.Component<
       red: 0,
       green: 0,
       blue: 0,
+      list: [],
     };
 
     this.handleBlueChange = this.handleBlueChange.bind(this);
     this.handleRedChange = this.handleRedChange.bind(this);
     this.handleGreenChange = this.handleGreenChange.bind(this);
+    this.refreshList = this.refreshList.bind(this);
   }
 
   handleRedChange(value: number) {
@@ -36,6 +38,31 @@ export default class ColorPicker extends React.Component<
     this.setState({ blue: value });
   }
 
+  componentDidMount() {
+    this.refreshList();
+  }
+
+  async refreshList() {
+    const list = await fetch("http://localhost/")
+      .then((response) => response.json())
+      .then((data) => {
+        let temp : any= [];
+        data.forEach((color: any) => {
+          temp.push(
+            <ColorListItem
+              key={color.id}
+              r={color.red}
+              g={color.green}
+              b={color.blue}
+              name={color.name}
+            />
+          );
+        });
+        return temp;
+      });
+      this.setState({list: list});
+    }
+  
   render() {
     return (
       <div className="MainContainer">
@@ -71,10 +98,11 @@ export default class ColorPicker extends React.Component<
             red={this.state.red}
             blue={this.state.blue}
             green={this.state.green}
+            refreshList={this.refreshList}
           />
         </div>
         <div className="ColorListContainer">
-          <ColorList />
+          <ColorList colors={this.state.list}/>
         </div>
       </div>
     );
