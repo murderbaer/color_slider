@@ -28,23 +28,21 @@ export default class ColorAddForm extends React.Component<
 
 
   handleButtonClick() {
-    let url = "http://localhost/";
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-      }
-    };
+    const url = "http://localhost/";
 
-    var data = `{
-     "red": ${this.props.red},
-     "green": ${this.props.green},
-     "blue": ${this.props.blue},
-     "name": "${this.state.name}"
-   }`;
-
-    xhr.send(data);
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "no-cors",
+      body: JSON.stringify({
+        red: this.props.red,
+        green: this.props.green,
+        blue: this.props.blue,
+        name: this.state.name,
+      }),
+    }).then(data  => console.log(data));
   }
 
   handleTextChange(event: React.ChangeEvent<HTMLInputElement>) {
