@@ -26,6 +26,11 @@ class DatabaseHandler
 
     public function saveColor($properties): bool
     {
+        $colors = $this->getColors();
+        if (in_array($properties['name'], array_column($colors, 'name'))) {
+            return false;
+        }
+        
         $sql = "INSERT INTO $this->table (red, green, blue, name) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$properties['red'], $properties['green'], $properties['blue'], $properties['name']]);

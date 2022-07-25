@@ -34,6 +34,7 @@ class HttpRequestHandler
         echo json_encode($colors);
         http_response_code(200);
     }
+    
 
     private function saveColor($properties)
     {
