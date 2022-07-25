@@ -62,7 +62,7 @@ class HttpRequestHandler
     }
     private function validateName($colorValue): bool
     {
-        if (gettype($colorValue) !== 'string') {
+        if (gettype($colorValue) !== 'string' || strlen($colorValue) < 1 || !ctype_alnum($colorValue)) {
             return false;
         }
         return true;

@@ -2,10 +2,10 @@ import React from "react";
 import ColorBox from "../components/ColorBox";
 import ColorSlider from "../components/ColorSlider";
 import ColorAddForm from "../components/ColorAddForm";
-
-import "./ColorPicker.css";
 import ColorList from "../components/ColorList";
 import ColorListItem from "../components/ColorListItem";
+
+import "./ColorPicker.css";
 
 export default class ColorPicker extends React.Component<
   {},

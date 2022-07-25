@@ -41,7 +41,7 @@ export default class ColorAddForm extends React.Component<
         blue: this.props.blue,
         name: this.state.name,
       }),
-    }).then(data  => console.log(data));
+    });
     this.props.refreshList();
   }
 

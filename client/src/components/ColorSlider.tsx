@@ -1,4 +1,4 @@
-import React, { Component, ChangeEvent } from "react";
+import { Component, ChangeEvent } from "react";
 import Slider from "rc-slider";
 
 import "rc-slider/assets/index.css";

@@ -1,4 +1,3 @@
-import React from 'react'
 import ColorBox from './ColorBox'
 import './style/ColorListItem.css'
 
